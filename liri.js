@@ -1,9 +1,11 @@
-require("dotenv").config();
-var keys = require("./keys.js");
-var axios = require("axios");
-var moment = require("moment");
+require('dotenv').config();
+var keys = require('./keys.js');
+var axios = require('axios');
+var moment = require('moment');
 var Spotify = require('node-spotify-api');
 var fs = require('fs');
+
+var searchTerm = process.argv.splice(3).join(' ');
 
 var pickCase = function(caseData, functionData) {
     switch (caseData) {
@@ -26,18 +28,11 @@ var pickCase = function(caseData, functionData) {
 
 var log = function() {
     // Create a string of the entered commands
-    var text = "";
-    for (var i = 2; i < process.argv.length; i++) {
-        if (i > 2) {
-            text += ", " + process.argv[i];
-        } else {
-            text = process.argv[i];
-        };
-    };
+    var text = moment().format('MM/DD/YYYY HH:mm') + ', Command: ' + process.argv[2] + ', Search: ' + searchTerm
 
     // Log the commands if string not empty
-    if (text != "") {
-        fs.appendFile("log.txt", text + "\r", function(err) {
+    if (text != '') {
+        fs.appendFile('log.txt', text + '\r', function(err) {
             if (err) {
                 console.log(err);
             };
@@ -46,14 +41,14 @@ var log = function() {
 };
 
 var getBand = function(artist) {
-    axios.get("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp")
+    axios.get('https://rest.bandsintown.com/artists/' + artist + '/events?app_id=codingbootcamp')
         .then(function(response) {
             var concerts = response.data;
             for (var i = 0; i < concerts.length; i++) {
-                console.log("Venue: " + concerts[i].venue.name);
-                console.log("Location: " + concerts[i].venue.city + ", " + concerts[i].venue.region + " " + concerts[i].venue.country);
-                console.log("Date: " + moment(concerts[i].datetime.substring(0, 10), "YYYY-MM-DD").format("MM/DD/YYYY"));
-                console.log("----------------------------------------");
+                console.log('Venue: ' + concerts[i].venue.name);
+                console.log('Location: ' + concerts[i].venue.city + ', ' + concerts[i].venue.region + ' ' + concerts[i].venue.country);
+                console.log('Date: ' + moment(concerts[i].datetime.substring(0, 10), 'YYYY-MM-DD').format('MM/DD/YYYY'));
+                console.log('----------------------------------------');
             };
         });
 };
@@ -74,7 +69,7 @@ var getSpotify = function(songName) {
                 console.log('song name: ' + songs[i].name);
                 console.log('preview song: ' + songs[i].preview_url);
                 console.log('album: ' + songs[i].album.name);
-                console.log("----------------------------------------");
+                console.log('----------------------------------------');
             };
         });
 };
@@ -99,9 +94,9 @@ var doWhatItSays = function() {
     fs.readFile('random.txt', 'utf8', function(err, data) {
         if (err) throw err;
 
-        var dataArr = data.split(',');
+        var dataArr = data.split(', ');
         if (dataArr[0] === '') {
-            console.log("The file does not contain a command.");
+            console.log('The file does not contain a command.');
         } else {
             pickCase(dataArr[0], dataArr[1]);
         };
@@ -110,4 +105,4 @@ var doWhatItSays = function() {
 };
 
 log();
-pickCase(process.argv[2], process.argv[3]);
+pickCase(process.argv[2], searchTerm);

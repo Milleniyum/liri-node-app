@@ -3,10 +3,9 @@ LIRI is a CLI application that provides concert event info using the Bands-in-To
 
 To get started, download or clone the repository.
 Navigate to the folder location and install the package.json: "npm install"
-Run the liri.js file using node from your command line (terminal, bash, etc): "node liri.js"
 
 ## Menu Options
-A list of menu options will be displayed. Enter the number of your choice and press Enter.
+Run the liri.js file using node from your command line (terminal, bash, etc): "node liri.js". A list of menu options will be displayed. Enter the number of your choice and press Enter.
 
 ![Menu Options](https://github.com/Milleniyum/liri-node-app/blob/master/images/node-liri.gif)
 

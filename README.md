@@ -29,10 +29,10 @@ A list of menu options will be displayed. Enter the number of your choice and pr
 ![Option 1](https://github.com/Milleniyum/liri-node-app/blob/master/images/node-liri-option3.gif)
 
 ## Option 4 - Get selection from random.txt file
-The random.txt file has an entry in the following format that will be read and executed:
-1. concert-this, <artist, group or band name>
-2. spotify-this-song, <song title>
-3. movie-this, <movie title>
+The random.txt file has an entry in the following format (command, search-term) that will be read and executed:
+1. concert-this, artist, group or band name
+2. spotify-this-song, song title
+3. movie-this, movie title
   
   ![Option 1](https://github.com/Milleniyum/liri-node-app/blob/master/images/node-liri-option4.gif)
 

@@ -7,6 +7,7 @@ Run the liri.js file using node from your command line (terminal, bash, etc): "n
 
 ## Menu Options
 A list of menu options will be displayed. Enter the number of your choice and press Enter.
+
 ![Menu Options](https://github.com/Milleniyum/liri-node-app/blob/master/images/node-liri.gif)
 
 ## Option 1 - Get concert details

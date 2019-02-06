@@ -43,23 +43,6 @@ var pickOption = function() {
     });
 };
 
-var log = function() {
-    // Create a string of the entered commands
-    var text = moment().format('MM/DD/YYYY HH:mm');
-    if (process.argv.length > 2) {
-        text += ', Command: ' + process.argv[2] + ', Search: ' + searchTerm
-    } else {
-        text += ', no user entry'
-    };
-
-    // Log the commands if string not empty
-    fs.appendFile('log.txt', text + '\r', function(err) {
-        if (err) {
-            console.log(err);
-        };
-    });
-};
-
 var getConcert = function() {
     var artist;
     inquirer.prompt([{

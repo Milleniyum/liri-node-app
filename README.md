@@ -22,7 +22,7 @@ Run the liri.js file using node from your command line (terminal, bash, etc): "n
 ![Option 1](https://github.com/Milleniyum/liri-node-app/blob/master/images/node-liri-option2.gif)
 
 ## Option 3 - Get movie details
-1. Enter a movie title when prompted. Note: If no entry is made a default move will be chosen.
+1. Enter a movie title when prompted. Note: If no entry is made a default movie will be chosen.
 2. Choose a display option of list or table when prompted.
 
 ![Option 1](https://github.com/Milleniyum/liri-node-app/blob/master/images/node-liri-option3.gif)
